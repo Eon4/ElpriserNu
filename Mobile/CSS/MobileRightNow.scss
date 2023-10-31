@@ -1,15 +1,15 @@
 
-#gearSettings{
+#gearSettings {
     color: var(--GreenDay);
     font-size: 22px;
     float: right;
-}
-
-#currentTime{
+  }
+  
+  #currentTime {
     color: var(--Light);
-}
-
-#firstLayer {
+  }
+  
+  #firstLayer {
     background-color: var(--blacky);
     width: 277px;
     height: 277px;
@@ -20,6 +20,7 @@
     align-items: center;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
   }
+  
   #firstLayer #secondLayer {
     width: 244px;
     height: 244px;
@@ -29,6 +30,7 @@
     justify-content: center;
     align-items: center;
   }
+  
   #firstLayer #secondLayer #indexContent {
     display: flex;
     justify-content: center;
@@ -39,6 +41,7 @@
     border: dashed rgba(85, 236, 32, 0.75) 2px;
     color: var(--neonGreen);
   }
+  
   #firstLayer #secondLayer #indexContent p {
     font-weight: 700;
-  }/*# sourceMappingURL=currentPrices.css.map */
+  } /*# sourceMappingURL=mobileHistory_style.css.map */

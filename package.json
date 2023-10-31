@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "sass": "^1.69.5"
+  },
+
+  "scripts": {
+    "compile-scss": "sass common_style.scss common_style.css"
   }
 }
