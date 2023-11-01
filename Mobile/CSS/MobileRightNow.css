@@ -1,0 +1,46 @@
+#gearSettings {
+  color: var(--GreenDay);
+  font-size: 22px;
+  float: right;
+}
+
+#currentTime {
+  color: var(--Light);
+}
+
+#firstLayer {
+  background-color: var(--blacky);
+  width: 277px;
+  height: 277px;
+  border-radius: 100%;
+  border: var(--neonGreen) 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+#firstLayer #secondLayer {
+  width: 244px;
+  height: 244px;
+  border-radius: 100%;
+  border: dashed rgba(85, 236, 32, 0.5) 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#firstLayer #secondLayer #indexContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 217px;
+  width: 217px;
+  border-radius: 100%;
+  border: dashed rgba(85, 236, 32, 0.75) 2px;
+  color: var(--neonGreen);
+}
+
+#firstLayer #secondLayer #indexContent p {
+  font-weight: 700;
+} /*# sourceMappingURL=MobileRightNow.css.map */

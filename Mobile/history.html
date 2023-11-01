@@ -5,8 +5,9 @@
     <title>ElPrisen.Nu</title>
     <link rel="icon" type="image/x-icon" href="/assets/icons//mainIcon.ico">
     <link rel="stylesheet" href="/CSS/main.css">
-    <!-- <link rel="stylesheet" href="./Common/Style/common_style.css"> -->
-    <!-- <link rel="stylesheet" href="./Mobile/CSS/mobileHistory_style.scss"> -->
+    <link rel="stylesheet" href="./CSS/mobileHistory_style.scss">
+    <script src="/Common/JS/history_script.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -18,14 +19,28 @@
                 <li><a href="/Mobile/history.html">Historik</a></li>
             </ul>
         </nav>
+        <a id="gearSettings" href="/settings.html"
+        ><i class="fa-solid fa-gear"></i></a>
     </header>
     
 <div>
     <h1>HISTORIK</h1>
 </div>
 <main>
-    <h2>El prisen lige nu</h2>
-    <div id="indexContent"></div>
+    <h2>Historik</h2>
+    <section>
+      <div id="choose-date">
+        <input
+          type="date"
+          id="start"
+          name="trip-start"
+          value="2018-07-22"
+          min="2022-11-01"
+          max="2018-12-31"
+        />
+      </div>
+      <div id="todaysElPrices"></div>
+    </section>
   </main>
   <footer>
     <p>

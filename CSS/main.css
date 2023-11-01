@@ -28,6 +28,13 @@
     margin-left: 5px; 
 }
 
+
+#gearSettings{
+  color: var(--GreenDay);
+  font-size: 22px;
+  float: right;
+}
+
   .topnavigation {
     position: fixed;
     top: 0;
