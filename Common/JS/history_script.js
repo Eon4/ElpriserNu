@@ -18,19 +18,19 @@ function fetchHistoricalPrices() {
     });
 }
 
-function displayTodaysPrices(data) {
-  const todaysElPrices = document.getElementById("todaysElPrices");
-  let priceHTML = "<h3>Latest prices for today:</h3>";
+// function displayTodaysPrices(data) {
+//   const todaysElPrices = document.getElementById("todaysElPrices");
+//   let priceHTML = "<h3>Latest prices for today:</h3>";
 
-  // Assuming that 'data' contains an array of prices for today
-  for (let hour = 0; hour < data.length; hour++) {
-    const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
-    const currentHour = hour < 10 ? `0${hour}` : `${hour}`;
-    priceHTML += `${currentHour}:00: ${price} kr per kWh<br>`;
-  }
+//   // Assuming that 'data' contains an array of prices for today
+//   for (let hour = 0; hour < data.length; hour++) {
+//     const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
+//     const currentHour = hour < 10 ? `0${hour}` : `${hour}`;
+//     priceHTML += `${currentHour}:00: ${price} kr per kWh<br>`;
+//   }
 
-  todaysElPrices.innerHTML = priceHTML;
-}
+//   todaysElPrices.innerHTML = priceHTML;
+// }
 
 
 function pickDate() {
@@ -69,3 +69,5 @@ const dateInput = document.getElementById("start");
 dateInput.addEventListener("change", fetchHistoricalPrices);
 // Initialize with today's date
 pickDate();
+
+
