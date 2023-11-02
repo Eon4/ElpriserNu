@@ -92,3 +92,32 @@ footer {
     color: var(--GreenDay);
   }
   
+@media (max-width: 312px) {
+    body {
+        padding-top: 0; 
+    }
+
+    footer {
+        padding: 5px; 
+    }
+
+    .topnavigation {
+        padding: 5px; 
+    }
+
+    #logo {
+        width: 20%; 
+    }
+
+    .topnavigation ul {
+        display: none; 
+    }
+
+    .topnavigation li {
+        margin-right: 10px;
+    }
+
+    .topnavigation a {
+        font-size: 14px; 
+    }
+}

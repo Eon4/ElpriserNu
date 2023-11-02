@@ -9,6 +9,31 @@
     color: var(--Light);
 }
 
+h2{
+  color: var(--Light);
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+input{
+  font-size: 16px;
+  background-color: var(--blacky);
+  color: var(--Light);
+  border-radius: 8px;
+  border-color: #5B5B5B;
+  border-style: outset;
+  color-scheme: dark;
+
+}
+
+
+#choose-date{
+  color: var(--Light);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;}
+
 #firstLayer {
     background-color: var(--blacky);
     width: 277px;
