@@ -32,6 +32,28 @@ input {
   margin-bottom: 10px;
 }
 
+#SelectedDate, #todaysElPrices {
+  color: var(--Light);
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+  font-size: 15px;
+  list-style: none;
+  border-radius: 10px;
+  color: var(--Light);
+  width: 305px;
+  height: 36px;
+  padding: 5px;
+  align-items: center;
+  margin: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+  background-color: var(--BlackCat);
+}
+
 #firstLayer {
   background-color: var(--blacky);
   width: 277px;

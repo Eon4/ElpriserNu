@@ -53,16 +53,17 @@ function displayHistoricalPrices(data) {
     return;
   }
 
-  let priceHTML = "<h3>Historical prices for the selected date:</h3>";
+  let priceHTML = "";
 
   for (let hour = 0; hour < data.length; hour++) {
     const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
     const currentHour = hour < 10 ? `0${hour}` : `${hour}`;
-    priceHTML += `${currentHour}:00: ${price} kr per kWh<br>`;
+    priceHTML += `<h5>Kl. ${currentHour}.00 ${price} kr per kWh</h5>`;
   }
 
   todaysElPrices.innerHTML = priceHTML;
 }
+
 
 // Attaching an event listener to the date input
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const selectedDate = dateInput.value;
       const [year, month, day] = selectedDate.split("-");
       const danishDate = `${day}-${month}-${year}`;
-      selectedDateDiv.textContent = `Valgt Dato: ${danishDate}`;
+      selectedDateDiv.textContent = `ELPRISERNE D. ${danishDate}`;
       fetchHistoricalPrices();
     });
   } else {

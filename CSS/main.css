@@ -19,7 +19,7 @@
   body{
     padding-top: 60px; 
     background-color: var(--DarkGrey);
-
+    margin-bottom: 80px;
 
   }
 
@@ -86,7 +86,7 @@ footer {
     text-align: center; 
     padding: 10px;
     font-family: var(--fontType);
-
+    /* margin-top: 40px; */
   }
   .green-text {
     color: var(--GreenDay);
