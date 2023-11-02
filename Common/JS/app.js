@@ -38,3 +38,4 @@ function showToday(data) {
 }
 
 fetched();
+

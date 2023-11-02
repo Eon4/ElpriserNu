@@ -18,21 +18,6 @@ function fetchHistoricalPrices() {
     });
 }
 
-// function displayTodaysPrices(data) {
-//   const todaysElPrices = document.getElementById("todaysElPrices");
-//   let priceHTML = "<h3>Latest prices for today:</h3>";
-
-//   // Assuming that 'data' contains an array of prices for today
-//   for (let hour = 0; hour < data.length; hour++) {
-//     const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
-//     const currentHour = hour < 10 ? `0${hour}` : `${hour}`;
-//     priceHTML += `${currentHour}:00: ${price} kr per kWh<br>`;
-//   }
-
-//   todaysElPrices.innerHTML = priceHTML;
-// }
-
-
 function pickDate() {
   let currentYear = new Date().getFullYear();
   let currentMonth = new Date().getMonth() + 1;
@@ -64,10 +49,16 @@ function displayHistoricalPrices(data) {
   todaysElPrices.innerHTML = priceHTML;
 }
 
-// Attach an event listener to the date input
+// Attaching an event listener to the date input
 const dateInput = document.getElementById("start");
-dateInput.addEventListener("change", fetchHistoricalPrices);
-// Initialize with today's date
+const selectedDateDiv = document.getElementById("SelectedDate");
+
+dateInput.addEventListener("change", function() {
+  const selectedDate = dateInput.value;
+  const [year, month, day] = selectedDate.split("-");
+  const danishDate = `${day}-${month}-${year}`;
+  selectedDateDiv.textContent = `Valgt Dato: ${danishDate}`;
+  fetchHistoricalPrices();
+});
+
 pickDate();
-
-

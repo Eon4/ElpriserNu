@@ -60,12 +60,21 @@
 }
 
 .topnavigation a {
-    text-decoration: none;
-    color: var(--Light);
-    font-family: var(--fontType);
-    font-size: 16px;
-
+  text-decoration: none;
+  color: var(--Light);
+  font-family: var(--fontType);
+  font-size: 16px;
+  transition: color 0.3s; /* Add a smooth transition effect for color changes */
 }
+
+.topnavigation a:hover {
+  color: var(--GreenDay); /* Change the color when hovering over the link */
+}
+
+.topnavigation a:active {
+  color: rgb(0, 47, 255); /* Change the color when the link is clicked */
+}
+
 
 
 footer {
