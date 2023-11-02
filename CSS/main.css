@@ -64,15 +64,15 @@
   color: var(--Light);
   font-family: var(--fontType);
   font-size: 16px;
-  transition: color 0.3s; /* Add a smooth transition effect for color changes */
+  transition: color 0.3s; 
 }
 
 .topnavigation a:hover {
-  color: var(--GreenDay); /* Change the color when hovering over the link */
+  color: var(--GreenDay); 
 }
 
 .topnavigation a:active {
-  color: rgb(0, 47, 255); /* Change the color when the link is clicked */
+  color: rgb(0, 47, 255); 
 }
 
 

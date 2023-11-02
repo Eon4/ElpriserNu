@@ -3,10 +3,21 @@
     color: var(--GreenDay);
     font-size: 22px;
     float: right;
+    // margin: auto;
   }
   
   #currentTime {
     color: var(--Light);
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  h2{
+    color: var(--Light);
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
   }
   
   #firstLayer {
@@ -19,6 +30,8 @@
     justify-content: center;
     align-items: center;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+    margin-left: auto;
+    margin-right: auto;
   }
   
   #firstLayer #secondLayer {
@@ -29,6 +42,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    // margin-left: auto;
+    // margin-right: auto;
   }
   
   #firstLayer #secondLayer #indexContent {
@@ -40,8 +55,16 @@
     border-radius: 100%;
     border: dashed rgba(85, 236, 32, 0.75) 2px;
     color: var(--neonGreen);
+    color: var(--GreenDay);
+    font-size: 16px;
+    // justify-content: center;
+    // margin-left: auto;
+    // margin-left: auto;
   }
   
   #firstLayer #secondLayer #indexContent p {
-    font-weight: 700;
+    // font-weight: 700;
+    font-size: 30px;
+    // margin-left: auto;
+    // margin-left: auto;
   } /*# sourceMappingURL=mobileHistory_style.css.map */
