@@ -1,0 +1,48 @@
+
+h1{
+    color: rgb(189, 14, 201);
+    font-family: var(--fontType);
+}
+
+h3{
+    color: pink;
+    font-family: var(--fontType);
+
+}
+
+#firstLayer {
+    background-color: var(--blacky);
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+    border: var(--neonGreen) 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  
+  #firstLayer #secondLayer {
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+    border: dashed rgba(85, 236, 32, 0.5) 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #firstLayer #secondLayer #indexLowestPrice #indexHighestPrice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 217px;
+    width: 217px;
+    border-radius: 100%;
+    border: dashed rgba(85, 236, 32, 0.75) 2px;
+    color: var(--neonGreen);
+  }
+  
+  #firstLayer #secondLayer #indexLowestPrice p #indexHighestPrice p {
+    font-weight: 700;
+  } 

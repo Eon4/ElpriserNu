@@ -6,8 +6,16 @@
     <link rel="icon" type="image/x-icon" href="/assets/icons//mainIcon.ico">
     <link rel="stylesheet" href="/CSS/main.css">
     <!-- <link rel="stylesheet" href="./Common/Style/common_style.css"> -->
-    <!-- <link rel="stylesheet" href="./Mobile/CSS/mobileHistory_style.scss"> -->
+    <link rel="stylesheet" href="./CSS/mobileOverview.scss">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
     <script src="/Common/JS/Nav_script.js" defer></script>
+    <script src="/Common/JS/Overview_script.js" defer></script>
 
 </head>
 <body>
@@ -20,16 +28,29 @@
                 <li><a href="/Mobile/history.html">Historik</a></li>
             </ul>
         </nav>
-        <!-- <a id="gearSettings" href="/settings.html"
-        ><i class="fa-solid fa-gear"></i></a> -->
+        <a id="gearSettings" href="/settings.html"
+        ><i class="fa-solid fa-gear"></i></a>
     </header>
     
 <div>
     <h1>OVERSIGT</h1>
 </div>
 <main>
-    <h2>El prisen lige nu</h2>
-    <div id="indexContent"></div>
+    <h3>Laveste pris</h3>
+    <div id="firstLayer">
+        <div id="secondLayer">
+          <div id="indexLowestPrice"></div>
+        </div>
+      </div>
+    <h3>Højeste pris</h3>
+    <div id="firstLayer">
+        <div id="secondLayer">
+          <div id="indexHighestPrice"></div>
+        </div>
+      </div>
+
+      <div id="todaysElPrices"></div>
+
   </main>
   <footer>
     <p>

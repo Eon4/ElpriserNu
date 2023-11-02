@@ -18,19 +18,19 @@ function fetchHistoricalPrices() {
     });
 }
 
+// Function to update the date input and fetch today's data
 function pickDate() {
-  let currentYear = new Date().getFullYear();
-  let currentMonth = new Date().getMonth() + 1;
-  let currentDay = new Date()
-    .toLocaleDateString(undefined, {
-      day: "2-digit",
-    })
-    .replace(".", "");
-  let URL = `https://www.elprisenligenu.dk/api/v1/prices/${currentYear}/${currentMonth}-${currentDay}_DK2.json`;
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const currentDay = new Date().getDate();
+  const currentFormattedDate = `${currentYear}-${currentMonth < 10 ? "0" : ""}${currentMonth}-${currentDay < 10 ? "0" : ""}${currentDay}`;
 
   const dateControl = document.querySelector('input[type="date"]');
-  dateControl.value = `${currentYear}-${currentMonth}-${currentDay}`;
-  dateControl.max = `${currentYear}-${currentMonth}-${currentDay}`;
+  dateControl.value = currentFormattedDate;
+  dateControl.max = currentFormattedDate;
+
+  // Automatically fetch and display today's data
+  fetchHistoricalPrices(currentFormattedDate);
 }
 
 
