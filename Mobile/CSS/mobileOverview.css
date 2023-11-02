@@ -8,6 +8,10 @@ h3 {
   font-family: var(--fontType);
 }
 
+body {
+  background-color: rgb(58, 58, 88);
+}
+
 #firstLayer {
   background-color: var(--blacky);
   width: 96px;
@@ -38,7 +42,7 @@ h3 {
   width: 217px;
   border-radius: 100%;
   border: dashed rgba(85, 236, 32, 0.75) 2px;
-  color: var(--neonGreen);
+  color: rgb(255, 255, 255);
 }
 
 #firstLayer #secondLayer #indexLowestPrice p #indexHighestPrice p {

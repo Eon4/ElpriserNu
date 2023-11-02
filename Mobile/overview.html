@@ -14,7 +14,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-    <script src="/Common/JS/Nav_script.js" defer></script>
+    <script type="module" src="/Common/JS/Nav_script.js" defer></script>
     <script src="/Common/JS/Overview_script.js" defer></script>
 
 </head>
@@ -39,19 +39,18 @@
     <h3>Laveste pris</h3>
     <div id="firstLayer">
         <div id="secondLayer">
-          <div id="indexLowestPrice"></div>
+            <div id="lowestPrice"></div>
         </div>
-      </div>
+    </div>
     <h3>Højeste pris</h3>
     <div id="firstLayer">
         <div id="secondLayer">
-          <div id="indexHighestPrice"></div>
+            <div id="highestPrice"></div>
         </div>
-      </div>
+    </div>
+    <div id="todaysElPrices"></div>
+</main>
 
-      <div id="todaysElPrices"></div>
-
-  </main>
   <footer>
     <p>
       Priserne er <span class="green-text">ex. moms</span> og afgifter. Du vises lige nu priserne

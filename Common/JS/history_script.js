@@ -1,17 +1,24 @@
-function fetchHistoricalPrices() {
-  // We get the selected date from the input field
-  const selectedDate = document.getElementById("start").value;
+// Function to fetch historical prices
+  function fetchHistoricalPrices() {
+  // Get the selected date from the input field
+  const dateInput = document.getElementById("start");
+  if (!dateInput) {
+    console.error("Date input element not found.");
+    return;
+  }
   
+  const selectedDate = dateInput.value;
+
   // Extract year, month, and day from the selected date
   const [selectedYear, selectedMonth, selectedDay] = selectedDate.split("-");
-    const URL = `https://www.elprisenligenu.dk/api/v1/prices/${selectedYear}/${selectedMonth}-${selectedDay}_DK2.json`;
+  const URL = `https://www.elprisenligenu.dk/api/v1/prices/${selectedYear}/${selectedMonth}-${selectedDay}_DK2.json`;
 
   // Fetching historical electricity prices
   fetch(URL)
     .then((response) => response.json())
     .then((data) => {
       displayHistoricalPrices(data);
-      console.log(data)
+      console.log(data);
     })
     .catch((error) => {
       console.error("Error fetching historical prices:", error);
@@ -25,18 +32,26 @@ function pickDate() {
   const currentDay = new Date().getDate();
   const currentFormattedDate = `${currentYear}-${currentMonth < 10 ? "0" : ""}${currentMonth}-${currentDay < 10 ? "0" : ""}${currentDay}`;
 
-  const dateControl = document.querySelector('input[type="date"]');
-  dateControl.value = currentFormattedDate;
-  dateControl.max = currentFormattedDate;
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput) {
+    dateInput.value = currentFormattedDate;
+    dateInput.max = currentFormattedDate;
+  } else {
+    console.error("Date input element not found.");
+  }
 
   // Automatically fetch and display today's data
   fetchHistoricalPrices(currentFormattedDate);
 }
 
-
+// Function to display historical prices
 function displayHistoricalPrices(data) {
   // Using data to display historical prices
   const todaysElPrices = document.getElementById("todaysElPrices");
+  if (!todaysElPrices) {
+    console.error("todaysElPrices element not found.");
+    return;
+  }
 
   let priceHTML = "<h3>Historical prices for the selected date:</h3>";
 
@@ -50,15 +65,21 @@ function displayHistoricalPrices(data) {
 }
 
 // Attaching an event listener to the date input
-const dateInput = document.getElementById("start");
-const selectedDateDiv = document.getElementById("SelectedDate");
+document.addEventListener("DOMContentLoaded", function () {
+  pickDate();
 
-dateInput.addEventListener("change", function() {
-  const selectedDate = dateInput.value;
-  const [year, month, day] = selectedDate.split("-");
-  const danishDate = `${day}-${month}-${year}`;
-  selectedDateDiv.textContent = `Valgt Dato: ${danishDate}`;
-  fetchHistoricalPrices();
+  const dateInput = document.getElementById("start");
+  const selectedDateDiv = document.getElementById("SelectedDate");
+
+  if (dateInput) {
+    dateInput.addEventListener("change", function() {
+      const selectedDate = dateInput.value;
+      const [year, month, day] = selectedDate.split("-");
+      const danishDate = `${day}-${month}-${year}`;
+      selectedDateDiv.textContent = `Valgt Dato: ${danishDate}`;
+      fetchHistoricalPrices();
+    });
+  } else {
+    console.error("Date input element not found.");
+  }
 });
-
-pickDate();
