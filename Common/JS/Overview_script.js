@@ -1,65 +1,116 @@
-function fetchData() {
-    const URL = 'https://www.elprisenligenu.dk/api/v1/prices/2023/11-01_DK2.json';
-    console.log('Fetch data called');
-    
-    // Get the current date in the format YYYY-MM-DD
-    const d = new Date();
-    const today = d.toISOString().split('T')[0];
-    console.log('Today:', today);
+// import { fetchHistoricalPrices, pickDate } from './history_script.js';
 
-    fetch(URL)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data); // Log the data to the console
+// document.addEventListener("DOMContentLoaded", function () {
+//     console.log("Event listener executed"); 
+//   pickDate();
 
-            const todayData = data.filter((entry) => entry && entry.time && entry.time.startsWith(today));
-            console.log('Filtered Data:', todayData);
+//   const dateInput = document.getElementById("start");
+//   const selectedDateDiv = document.getElementById("SelectedDate");
+//   const lowestPriceDiv = document.getElementById("lowestPrice");
+//   const highestPriceDiv = document.getElementById("highestPrice");
 
-            if (todayData.length > 0) {
-                console.log('Today\'s data:', todayData);
+//   if (dateInput) {
+//     dateInput.addEventListener("change", async function () {
+//       const selectedDate = dateInput.value;
+//       const [year, month, day] = selectedDate.split("-");
+//       const danishDate = `${day}-${month}-${year}`;
+//       selectedDateDiv.textContent = `ELPRISERNE D. ${danishDate}`;
 
-                // Find the highest and lowest prices for today
-                const highestPrice = Math.max(...todayData.map((entry) => entry.DKK_per_kWh));
-                const lowestPrice = Math.min(...todayData.map((entry) => entry.DKK_per_kWh));
-                console.log('Highest price:', highestPrice);
-                console.log('Lowest price:', lowestPrice);
-            
-                // Display the highest and lowest prices in your HTML
-                displayLowestPrice(lowestPrice);
-                displayHighestPrice(highestPrice);
-                displayTodaysPrice(todayData[0].DKK_per_kWh); // Display today's price
-            }
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-        });
-}
+//       // Fetch historical data
+//       const data = await fetchHistoricalPrices(selectedDate);
 
-// Function to display today's electricity prices
-function displayTodaysPrice(price) {
-    const todaysPriceDiv = document.getElementById('todaysElPrices');
-    todaysPriceDiv.textContent = `Today's Price: ${price} kr per kWh`;
-    console.log('Displaying today\'s price:', price);
-}
+//       // Calculate the lowest and highest prices
+//       let lowestPrice = Infinity;
+//       let highestPrice = -Infinity;
 
-// Function to display the lowest price
-function displayLowestPrice(price) {
-    const lowestPriceDiv = document.getElementById('lowestPrice');
-    lowestPriceDiv.textContent = `Lowest Price: ${price} kr per kWh`;
-}
+//       for (let hour = 0; hour < data.length; hour++) {
+//         const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
+//         lowestPrice = Math.min(lowestPrice, price);
+//         highestPrice = Math.max(highestPrice, price);
+//       }
 
-// Function to display the highest price
-function displayHighestPrice(price) {
-    const highestPriceDiv = document.getElementById('highestPrice');
-    highestPriceDiv.textContent = `Highest Price: ${price} kr per kWh`;
-}
+//       // Update the lowest and highest price divs in the HTML
+//       lowestPriceDiv.innerHTML = `Lowest Price: ${lowestPrice} kr per kWh`;
+//       highestPriceDiv.innerHTML = `Highest Price: ${highestPrice} kr per kWh`;
+      
+//     });
+//   }
+// });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Call the fetchData function to initiate the request
-    fetchData();
+
+
+import { fetchHistoricalPrices, pickDate } from './history_script.js';
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Event listener executed");
+  pickDate();
+
+  const dateInput = document.getElementById("start");
+  const selectedDateDiv = document.getElementById("SelectedDate");
+
+  if (dateInput) {
+    dateInput.addEventListener("change", async function () {
+      const selectedDate = dateInput.value;
+      const [year, month, day] = selectedDate.split("-");
+      const danishDate = `${day}-${month}-${year}`;
+      selectedDateDiv.textContent = `ELPRISERNE D. ${danishDate}`;
+
+      // Fetch historical data
+      const data = await fetchHistoricalPrices(selectedDate);
+
+      // Display the historical prices
+      displayHistoricalPrices(data);
+    });
+  }
 });
+
+const displayHistoricalPrices = (data) => {
+  const lowestPriceDiv = document.getElementById("lowestPrice");
+  const highestPriceDiv = document.getElementById("highestPrice");
+
+  console.log("Todays Data", data);
+
+  let minPrice = Number.MAX_VALUE;
+  let maxPrice = -1;
+
+  console.log(minPrice, maxPrice);
+
+  data.forEach((hour) => {
+    const price = hour.DKK_per_kWh;
+
+    if (price < minPrice) {
+      minPrice = price;
+    }
+
+    if (price > maxPrice) {
+      maxPrice = price;
+    }
+  });
+
+  // Display the lowest and highest prices in HTML elements
+  lowestPriceDiv.innerHTML = `<h4 id="h4">${minPrice.toFixed(3)}<p>KR</p></h4><h5>PR. KWH</h5>`;
+  highestPriceDiv.innerHTML = `<h4 id="h4">${maxPrice.toFixed(3)}<p>KR</p></h4><h5>PR. KWH</h5>`;
+  console.log(highestPriceDiv.innerHTML);
+};
+
+
+
+  
+// function showToday(data, lowestPrice, highestPrice) {
+//   // Update your divs using lowestPrice and highestPrice
+//   const lowestPriceDiv = document.getElementById("lowestPriceContainer");
+//   const highestPriceDiv = document.getElementById("highestPriceContainer");
+//   console.log(showToday)
+
+//   // Update the lowest and highest price divs in the HTML
+//   lowestPriceDiv.innerHTML = `Lowest Price: ${lowestPrice} kr per kWh`;
+//   highestPriceDiv.innerHTML = `Highest Price: ${highestPrice} kr per kWh`;
+
+//   const indexContent = document.getElementById("indexContent");
+//   const currentTime = document.getElementById("currentTime");
+//   console.log("Data", data);
+//   indexContent.innerHTML = `<p>${
+//     Math.round(data[currentHours].DKK_per_kWh * 1000) / 1000
+//   } kr </br> <span>pr. kwh</span></p>`;
+//   currentTime.innerHTML = currentHours + ".00" + " - " + currentHours2 + ".00";
+// }

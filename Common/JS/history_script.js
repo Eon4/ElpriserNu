@@ -1,5 +1,5 @@
 // Function to fetch historical prices
-  function fetchHistoricalPrices() {
+  export function fetchHistoricalPrices() {
   // Get the selected date from the input field
   const dateInput = document.getElementById("start");
   if (!dateInput) {
@@ -26,7 +26,7 @@
 }
 
 // Function to update the date input and fetch today's data
-function pickDate() {
+export function pickDate() {
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth() + 1;
   const currentDay = new Date().getDate();
@@ -45,7 +45,8 @@ function pickDate() {
 }
 
 // Function to display historical prices
-function displayHistoricalPrices(data) {
+// Function to display historical prices and return lowest and highest prices
+export function displayHistoricalPrices(data) {
   // Using data to display historical prices
   const todaysElPrices = document.getElementById("todaysElPrices");
   if (!todaysElPrices) {
@@ -54,15 +55,25 @@ function displayHistoricalPrices(data) {
   }
 
   let priceHTML = "";
+  let lowestPrice = Infinity; // Initialize with a high value
+  let highestPrice = -Infinity; // Initialize with a low value
 
   for (let hour = 0; hour < data.length; hour++) {
     const price = Math.round(data[hour].DKK_per_kWh * 1000) / 1000;
     const currentHour = hour < 10 ? `0${hour}` : `${hour}`;
     priceHTML += `<h5>Kl. ${currentHour}.00 ${price} kr per kWh</h5>`;
+
+    // Update the lowest and highest prices
+    lowestPrice = Math.min(lowestPrice, price);
+    highestPrice = Math.max(highestPrice, price);
   }
 
   todaysElPrices.innerHTML = priceHTML;
+
+  // Return the lowest and highest prices
+  return { lowestPrice, highestPrice };
 }
+
 
 
 // Attaching an event listener to the date input

@@ -14,7 +14,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"/>
     <script type="module" src="/Common/JS/Nav_script.js" defer></script>
-    <script src="/Common/JS/Overview_script.js" defer></script>
+    <script type="module" src="/Common/JS/Overview_script.js" defer></script>
 
 </head>
 <body>
@@ -47,7 +47,28 @@
             <div id="highestPrice"></div>
         </div>
     </div>
-    <div id="todaysElPrices"></div>
+<!--Testing-->
+<h3>Laveste pris</h3>
+<div id="lowestPriceContainer">
+    <div id="lowestPrice"></div>
+    <div id="indexContent"></div>
+</div>
+<h3>Højeste pris</h3>
+<div id="highestPriceContainer">
+    <div id="highestPrice"></div>
+</div>
+
+    <!-- <div id="choose-date"> -->
+        <input
+        type="date"
+        id="start"
+        name="trip-start"
+        value="2018-07-22"
+        min="2022-11-01"
+        max="2018-12-31"
+        class="hidden-input"
+      />
+      <div id="todaysElPrices"></div>
 </main>
 
   <footer>

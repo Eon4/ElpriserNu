@@ -17,12 +17,13 @@ h2 {
 
 input {
   font-size: 16px;
-  background-color: var(--blacky);
+  background-color: var(--BlackCat);
   color: var(--Light);
   border-radius: 8px;
   border-color: #5B5B5B;
   border-style: outset;
   color-scheme: dark;
+  padding: 4px;
 }
 
 #choose-date {
@@ -30,6 +31,11 @@ input {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-color: var(--GreenDay);
+  border-radius: 5px;
 }
 
 #SelectedDate, #todaysElPrices {
