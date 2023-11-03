@@ -8,6 +8,25 @@
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "orientation": "portrait-primary",
+    "form_factor": "slim",
+    "screenshots": [
+      {
+        "src": "assets/img/mobileApp.png",
+        "sizes": "466x824",
+        "type": "image/webp",
+        "form_factor": "narrow",
+        "label": "Mobile app screen"
+      },
+      {
+        "src": "assets/img/desktopApp.png",
+        "sizes": "1092x783",
+        "type": "image/webp",
+        "form_factor": "wide",
+        "label": "Desktop app screen"
+      }
+ 
+
+    ],
     "icons": [
       {
         "src": "assets/icons/windows11/SmallTile.scale-100.png",

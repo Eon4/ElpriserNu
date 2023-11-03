@@ -6,7 +6,6 @@
     --BlackCat: #201E1E;
     --GreenDay: #55EC20;
     --fontType: "Roboto", sans-serif;
-
 }
 
 * {
@@ -75,8 +74,6 @@
 .topnavigation a:active {
   color: rgb(0, 47, 255); 
 }
-
-
 
 footer {
     position: fixed;

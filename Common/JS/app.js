@@ -1,3 +1,11 @@
+
+//SW HERE
+if('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('./sw.js')
+	.then(reg => console.log('service worker registered', reg))
+	.catch(err => console.error('service worker not registered', err)) 
+}
+
 // Getting current and next hour
 
 let currentHours = new Date().getHours();
