@@ -1,2 +1,2 @@
 # ElpriserNu
-Assignment: Create an app containing current electricity prices
+Project: Create an app containing current electricity prices
